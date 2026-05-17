@@ -304,7 +304,7 @@ export default function Home() {
           <div>
 
             <h1 className="text-4xl font-extrabold text-blue-700">
-              Timesheet Lembur Karyawan
+              Lembur Admin SQA Puma
             </h1>
 
             <p className="text-gray-500 mt-1">
