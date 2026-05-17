@@ -15,7 +15,7 @@ export default function Home() {
       masuk: "",
       pulang: "",
       durasi: 0,
-      status: "Done",
+      status: "Pending",
     },
   ]);
 
@@ -29,7 +29,7 @@ export default function Home() {
         masuk: "",
         pulang: "",
         durasi: 0,
-        status: "Done",
+        status: "Pending",
       },
     ]);
 
@@ -377,9 +377,15 @@ export default function Home() {
                     {item.durasi}
                   </td>
 
-                  <td className="border p-2 text-center text-green-600 font-bold">
-                    {item.status}
-                  </td>
+                  <td
+  className={`border p-2 text-center font-bold ${
+    item.status === "Done"
+      ? "text-green-600"
+      : "text-yellow-500"
+  }`}
+>
+  {item.status}
+</td>
 
                   <td className="border p-2 text-center">
 
