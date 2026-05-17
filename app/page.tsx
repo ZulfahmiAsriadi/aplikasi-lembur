@@ -261,351 +261,344 @@ export default function Home() {
       setUser(null);
 
     };
-if (!user) {
 
-  return (
+  if (!user) {
 
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-slate-200">
+    return (
 
-      <div className="bg-white p-10 rounded-3xl shadow-2xl text-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-slate-200">
 
-        <h1 className="text-3xl font-bold text-blue-700 mb-4">
-          Timesheet Lembur
-        </h1>
+        <div className="bg-white p-10 rounded-3xl shadow-2xl text-center">
 
-        <p className="text-gray-500 mb-6">
-          Silakan login menggunakan Google
-        </p>
+          <h1 className="text-3xl font-bold text-blue-700 mb-4">
+            Timesheet Lembur
+          </h1>
 
-        <button
-          onClick={loginGoogle}
-          className="bg-black text-white px-6 py-3 rounded-2xl hover:scale-105 transition-all cursor-pointer"
-        >
-          Login Google
-        </button>
+          <p className="text-gray-500 mb-6">
+            Silakan login menggunakan Google
+          </p>
+
+          <button
+            onClick={loginGoogle}
+            className="bg-black text-white px-6 py-3 rounded-2xl hover:scale-105 transition-all cursor-pointer"
+          >
+            Login Google
+          </button>
+
+        </div>
 
       </div>
 
-    </div>
+    );
 
-  );
+  }
 
-}
   return (
 
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-slate-200 p-6">
 
       <div className="bg-white/80 backdrop-blur-lg border border-white/40 p-8 rounded-3xl shadow-2xl">
 
-        <div className="flex justify-end mb-6">
+        <div className="flex justify-between items-center mb-6">
 
-          {user ? (
+          <div>
 
-            <div className="flex items-center gap-4 bg-white px-4 py-2 rounded-2xl shadow-lg">
+            <h1 className="text-4xl font-extrabold text-blue-700">
+              Timesheet Lembur Karyawan
+            </h1>
 
-              <img
-                src={user.photoURL}
-                alt="profile"
-                className="w-12 h-12 rounded-full border-2 border-blue-500"
-              />
+            <p className="text-gray-500 mt-1">
+              Selamat datang, {user.displayName}
+            </p>
 
-              <div>
+          </div>
 
-                <p className="font-bold text-gray-800">
-                  {user.displayName}
-                </p>
+          <div className="flex items-center gap-4 bg-white px-4 py-2 rounded-2xl shadow-lg">
 
-                <p className="text-sm text-gray-500">
-                  {user.email}
-                </p>
+            <img
+              src={user.photoURL}
+              alt="profile"
+              className="w-12 h-12 rounded-full border-2 border-blue-500"
+            />
 
-              </div>
+            <div>
 
-              <button
-                onClick={
-                  logoutGoogle
-                }
-                className="bg-red-500 text-white px-4 py-2 rounded-xl hover:scale-105 transition-all cursor-pointer"
-              >
-                Logout
-              </button>
+              <p className="font-bold text-gray-800">
+                {user.displayName}
+              </p>
+
+              <p className="text-sm text-gray-500">
+                {user.email}
+              </p>
 
             </div>
 
-          ) : (
-
             <button
-              onClick={
-                loginGoogle
-              }
-              className="bg-black text-white px-5 py-3 rounded-xl hover:scale-105 transition-all cursor-pointer"
+              onClick={logoutGoogle}
+              className="bg-red-500 text-white px-4 py-2 rounded-xl hover:scale-105 transition-all cursor-pointer"
             >
-              Login Google
+              Logout
             </button>
 
-          )}
+          </div>
 
         </div>
 
-        <h1 className="text-4xl font-extrabold text-blue-700 mb-8">
+        <div className="grid grid-cols-2 gap-4 mb-8">
 
-          Timesheet Lembur Karyawan
+          <div>
 
-        </h1>
-</h1>
-
-<div className="grid grid-cols-2 gap-4 mb-8">
-
-  <div>
-    <label className="font-semibold">
-      Nama
-    </label>
-
-    <input
-      type="text"
-      defaultValue="Muhiddin"
-      className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
-    />
-  </div>
-
-  <div>
-    <label className="font-semibold">
-      Jabatan
-    </label>
-
-    <input
-      type="text"
-      defaultValue="OS1"
-      className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
-    />
-  </div>
-
-  <div>
-    <label className="font-semibold">
-      Divisi
-    </label>
-
-    <input
-      type="text"
-      defaultValue="Service Quality Assurance"
-      className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
-    />
-  </div>
-
-  <div>
-    <label className="font-semibold">
-      Bulan / Tahun
-    </label>
-
-    <input
-      type="text"
-      defaultValue="Mei 2026"
-      className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
-    />
-  </div>
-
-</div>
-<div className="overflow-x-auto">
-
-  <table className="w-full border-collapse overflow-hidden rounded-2xl shadow-lg">
-
-    <thead>
-
-      <tr className="bg-gradient-to-r from-blue-600 to-blue-500 text-white">
-
-        <th className="p-4">
-          No
-        </th>
-
-        <th className="p-4">
-          Tanggal
-        </th>
-
-        <th className="p-4">
-          Deskripsi Kerjaan
-        </th>
-
-        <th className="p-4">
-          Jam Masuk
-        </th>
-
-        <th className="p-4">
-          Jam Pulang
-        </th>
-
-        <th className="p-4">
-          Durasi
-        </th>
-
-        <th className="p-4">
-          Status
-        </th>
-
-        <th className="p-4">
-          Action
-        </th>
-
-      </tr>
-
-    </thead>
-
-    <tbody>
-
-      {data.map((item, index) => (
-
-        <tr
-          key={index}
-          className="bg-white/70 backdrop-blur-lg hover:bg-blue-50 transition-all"
-        >
-
-          <td className="border p-3 text-center">
-            {index + 1}
-          </td>
-
-          <td className="border p-3">
-
-            <input
-              type="date"
-              value={item.tanggal}
-              onChange={(e) =>
-                updateData(
-                  index,
-                  "tanggal",
-                  e.target.value
-                )
-              }
-              className="w-full bg-transparent outline-none"
-            />
-
-          </td>
-
-          <td className="border p-3">
+            <label className="font-semibold">
+              Nama
+            </label>
 
             <input
               type="text"
-              value={item.deskripsi}
-              onChange={(e) =>
-                updateData(
-                  index,
-                  "deskripsi",
-                  e.target.value
-                )
-              }
-              className="w-full bg-transparent outline-none"
+              defaultValue={user.displayName}
+              className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
             />
 
-          </td>
+          </div>
 
-          <td className="border p-3">
+          <div>
+
+            <label className="font-semibold">
+              Jabatan
+            </label>
 
             <input
-              type="time"
-              value={item.masuk}
-              onChange={(e) =>
-                updateData(
-                  index,
-                  "masuk",
-                  e.target.value
-                )
-              }
-              className="w-full bg-transparent outline-none"
+              type="text"
+              defaultValue="OS1"
+              className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
             />
 
-          </td>
+          </div>
 
-          <td className="border p-3">
+          <div>
+
+            <label className="font-semibold">
+              Divisi
+            </label>
 
             <input
-              type="time"
-              value={item.pulang}
-              onChange={(e) =>
-                updateData(
-                  index,
-                  "pulang",
-                  e.target.value
-                )
-              }
-              className="w-full bg-transparent outline-none"
+              type="text"
+              defaultValue="Service Quality Assurance"
+              className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
             />
 
-          </td>
+          </div>
 
-          <td className="border p-3 text-center">
-            {item.durasi}
-          </td>
+          <div>
 
-          <td className="border p-3 text-center">
+            <label className="font-semibold">
+              Bulan / Tahun
+            </label>
 
-            <span className="text-yellow-500 font-bold">
-              {item.status}
-            </span>
+            <input
+              type="text"
+              defaultValue="Mei 2026"
+              className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
+            />
 
-          </td>
+          </div>
 
-          <td className="border p-3 text-center">
+        </div>
 
-            <button
-              onClick={() =>
-                hapusRow(index)
-              }
-              className="bg-red-500 hover:scale-105 transition-all text-white px-4 py-2 rounded-xl cursor-pointer"
-            >
-              Hapus
-            </button>
+        <div className="overflow-x-auto">
 
-          </td>
+          <table className="w-full border-collapse overflow-hidden rounded-2xl shadow-lg">
 
-        </tr>
+            <thead>
 
-      ))}
+              <tr className="bg-gradient-to-r from-blue-600 to-blue-500 text-white">
 
-    </tbody>
+                <th className="p-4">
+                  No
+                </th>
 
-  </table>
+                <th className="p-4">
+                  Tanggal
+                </th>
 
-</div>
+                <th className="p-4">
+                  Deskripsi Kerjaan
+                </th>
 
-<div className="mt-6 flex gap-4">
+                <th className="p-4">
+                  Jam Masuk
+                </th>
 
-  <button
-    onClick={tambahRow}
-    className="bg-blue-600 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
-  >
-    + Tambah Row
-  </button>
+                <th className="p-4">
+                  Jam Pulang
+                </th>
 
-  <button
-    onClick={simpanData}
-    className="bg-green-600 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
-  >
-    Simpan Firebase
-  </button>
+                <th className="p-4">
+                  Durasi
+                </th>
 
-  <button
-    onClick={exportExcel}
-    className="bg-yellow-500 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
-  >
-    Export Excel
-  </button>
+                <th className="p-4">
+                  Status
+                </th>
 
-</div>
+                <th className="p-4">
+                  Action
+                </th>
 
-<div className="mt-10 flex justify-end">
+              </tr>
 
-  <div className="bg-blue-600 text-white px-8 py-4 rounded-2xl shadow-lg font-bold">
+            </thead>
 
-    Total Jam : {totalJam}
+            <tbody>
 
-  </div>
+              {data.map((item, index) => (
 
-</div>
-<p className="text-gray-500">
-  
-</p>
+                <tr
+                  key={index}
+                  className="bg-white/70 backdrop-blur-lg hover:bg-blue-50 transition-all"
+                >
 
-</div>
+                  <td className="border p-3 text-center">
+                    {index + 1}
+                  </td>
 
-</div>
+                  <td className="border p-3">
+
+                    <input
+                      type="date"
+                      value={item.tanggal}
+                      onChange={(e) =>
+                        updateData(
+                          index,
+                          "tanggal",
+                          e.target.value
+                        )
+                      }
+                      className="w-full bg-transparent outline-none"
+                    />
+
+                  </td>
+
+                  <td className="border p-3">
+
+                    <input
+                      type="text"
+                      value={item.deskripsi}
+                      onChange={(e) =>
+                        updateData(
+                          index,
+                          "deskripsi",
+                          e.target.value
+                        )
+                      }
+                      className="w-full bg-transparent outline-none"
+                    />
+
+                  </td>
+
+                  <td className="border p-3">
+
+                    <input
+                      type="time"
+                      value={item.masuk}
+                      onChange={(e) =>
+                        updateData(
+                          index,
+                          "masuk",
+                          e.target.value
+                        )
+                      }
+                      className="w-full bg-transparent outline-none"
+                    />
+
+                  </td>
+
+                  <td className="border p-3">
+
+                    <input
+                      type="time"
+                      value={item.pulang}
+                      onChange={(e) =>
+                        updateData(
+                          index,
+                          "pulang",
+                          e.target.value
+                        )
+                      }
+                      className="w-full bg-transparent outline-none"
+                    />
+
+                  </td>
+
+                  <td className="border p-3 text-center">
+                    {item.durasi}
+                  </td>
+
+                  <td className="border p-3 text-center">
+
+                    <span className="text-yellow-500 font-bold">
+                      {item.status}
+                    </span>
+
+                  </td>
+
+                  <td className="border p-3 text-center">
+
+                    <button
+                      onClick={() =>
+                        hapusRow(index)
+                      }
+                      className="bg-red-500 hover:scale-105 transition-all text-white px-4 py-2 rounded-xl cursor-pointer"
+                    >
+                      Hapus
+                    </button>
+
+                  </td>
+
+                </tr>
+
+              ))}
+
+            </tbody>
+
+          </table>
+
+        </div>
+
+        <div className="mt-6 flex gap-4">
+
+          <button
+            onClick={tambahRow}
+            className="bg-blue-600 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
+          >
+            + Tambah Row
+          </button>
+
+          <button
+            onClick={simpanData}
+            className="bg-green-600 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
+          >
+            Simpan Firebase
+          </button>
+
+          <button
+            onClick={exportExcel}
+            className="bg-yellow-500 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
+          >
+            Export Excel
+          </button>
+
+        </div>
+
+        <div className="mt-10 flex justify-end">
+
+          <div className="bg-blue-600 text-white px-8 py-4 rounded-2xl shadow-lg font-bold">
+
+            Total Jam : {totalJam}
+
+          </div>
+
+        </div>
+
       </div>
 
     </div>
