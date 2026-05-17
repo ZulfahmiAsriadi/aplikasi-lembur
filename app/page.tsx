@@ -497,16 +497,19 @@ export default function Home() {
 
                   <td className="border p-3">
 
-                    <input
-                      type="time"
-                      value={item.masuk}
-                      onChange={(e) =>
-                        updateData(
-                          index,
-                          "masuk",
-                          e.target.value
-                        )
-                      }
+                   <input
+  type="text"
+  placeholder="18:00"
+  value={item.masuk}
+  onChange={(e) =>
+    updateData(
+      index,
+      "masuk",
+      e.target.value
+    )
+  }
+  className="w-full outline-none"
+/>
                       className="w-full bg-transparent outline-none"
                     />
 
@@ -515,15 +518,18 @@ export default function Home() {
                   <td className="border p-3">
 
                     <input
-                      type="time"
-                      value={item.pulang}
-                      onChange={(e) =>
-                        updateData(
-                          index,
-                          "pulang",
-                          e.target.value
-                        )
-                      }
+  type="text"
+  placeholder="22:00"
+  value={item.pulang}
+  onChange={(e) =>
+    updateData(
+      index,
+      "pulang",
+      e.target.value
+    )
+  }
+  className="w-full outline-none"
+/>
                       className="w-full bg-transparent outline-none"
                     />
 
