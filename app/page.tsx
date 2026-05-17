@@ -352,7 +352,67 @@ if (!user) {
           Timesheet Lembur Karyawan
 
         </h1>
+</h1>
 
+<div className="grid grid-cols-2 gap-4 mb-8">
+
+  <div>
+    <label className="font-semibold">
+      Nama
+    </label>
+
+    <input
+      type="text"
+      defaultValue="Muhiddin"
+      className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
+    />
+  </div>
+
+  <div>
+    <label className="font-semibold">
+      Jabatan
+    </label>
+
+    <input
+      type="text"
+      defaultValue="OS1"
+      className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
+    />
+  </div>
+
+  <div>
+    <label className="font-semibold">
+      Divisi
+    </label>
+
+    <input
+      type="text"
+      defaultValue="Service Quality Assurance"
+      className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
+    />
+  </div>
+
+  <div>
+    <label className="font-semibold">
+      Bulan / Tahun
+    </label>
+
+    <input
+      type="text"
+      defaultValue="Mei 2026"
+      className="w-full border border-gray-300 bg-white/70 p-3 rounded-xl mt-1"
+    />
+  </div>
+
+</div>
+
+<p className="text-gray-500">
+  Form lembur berhasil login 😎
+</p>
+
+</div>
+
+</div>
       </div>
 
     </div>
