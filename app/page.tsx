@@ -405,9 +405,202 @@ if (!user) {
   </div>
 
 </div>
+<div className="overflow-x-auto">
 
+  <table className="w-full border-collapse overflow-hidden rounded-2xl shadow-lg">
+
+    <thead>
+
+      <tr className="bg-gradient-to-r from-blue-600 to-blue-500 text-white">
+
+        <th className="p-4">
+          No
+        </th>
+
+        <th className="p-4">
+          Tanggal
+        </th>
+
+        <th className="p-4">
+          Deskripsi Kerjaan
+        </th>
+
+        <th className="p-4">
+          Jam Masuk
+        </th>
+
+        <th className="p-4">
+          Jam Pulang
+        </th>
+
+        <th className="p-4">
+          Durasi
+        </th>
+
+        <th className="p-4">
+          Status
+        </th>
+
+        <th className="p-4">
+          Action
+        </th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      {data.map((item, index) => (
+
+        <tr
+          key={index}
+          className="bg-white/70 backdrop-blur-lg hover:bg-blue-50 transition-all"
+        >
+
+          <td className="border p-3 text-center">
+            {index + 1}
+          </td>
+
+          <td className="border p-3">
+
+            <input
+              type="date"
+              value={item.tanggal}
+              onChange={(e) =>
+                updateData(
+                  index,
+                  "tanggal",
+                  e.target.value
+                )
+              }
+              className="w-full bg-transparent outline-none"
+            />
+
+          </td>
+
+          <td className="border p-3">
+
+            <input
+              type="text"
+              value={item.deskripsi}
+              onChange={(e) =>
+                updateData(
+                  index,
+                  "deskripsi",
+                  e.target.value
+                )
+              }
+              className="w-full bg-transparent outline-none"
+            />
+
+          </td>
+
+          <td className="border p-3">
+
+            <input
+              type="time"
+              value={item.masuk}
+              onChange={(e) =>
+                updateData(
+                  index,
+                  "masuk",
+                  e.target.value
+                )
+              }
+              className="w-full bg-transparent outline-none"
+            />
+
+          </td>
+
+          <td className="border p-3">
+
+            <input
+              type="time"
+              value={item.pulang}
+              onChange={(e) =>
+                updateData(
+                  index,
+                  "pulang",
+                  e.target.value
+                )
+              }
+              className="w-full bg-transparent outline-none"
+            />
+
+          </td>
+
+          <td className="border p-3 text-center">
+            {item.durasi}
+          </td>
+
+          <td className="border p-3 text-center">
+
+            <span className="text-yellow-500 font-bold">
+              {item.status}
+            </span>
+
+          </td>
+
+          <td className="border p-3 text-center">
+
+            <button
+              onClick={() =>
+                hapusRow(index)
+              }
+              className="bg-red-500 hover:scale-105 transition-all text-white px-4 py-2 rounded-xl cursor-pointer"
+            >
+              Hapus
+            </button>
+
+          </td>
+
+        </tr>
+
+      ))}
+
+    </tbody>
+
+  </table>
+
+</div>
+
+<div className="mt-6 flex gap-4">
+
+  <button
+    onClick={tambahRow}
+    className="bg-blue-600 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
+  >
+    + Tambah Row
+  </button>
+
+  <button
+    onClick={simpanData}
+    className="bg-green-600 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
+  >
+    Simpan Firebase
+  </button>
+
+  <button
+    onClick={exportExcel}
+    className="bg-yellow-500 hover:scale-105 transition-all text-white px-5 py-3 rounded-2xl shadow-lg cursor-pointer"
+  >
+    Export Excel
+  </button>
+
+</div>
+
+<div className="mt-10 flex justify-end">
+
+  <div className="bg-blue-600 text-white px-8 py-4 rounded-2xl shadow-lg font-bold">
+
+    Total Jam : {totalJam}
+
+  </div>
+
+</div>
 <p className="text-gray-500">
-  Form lembur berhasil login 😎
+  
 </p>
 
 </div>
