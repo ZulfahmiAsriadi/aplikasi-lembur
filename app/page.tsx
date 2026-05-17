@@ -379,7 +379,7 @@ export default function Home() {
 
                   <td
   className={`border p-2 text-center font-bold ${
-    item.status === "Done"
+    item.status === "Pending"
       ? "text-green-600"
       : "text-yellow-500"
   }`}
