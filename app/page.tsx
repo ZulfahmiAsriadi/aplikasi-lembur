@@ -508,8 +508,6 @@ export default function Home() {
       e.target.value
     )
   }
-  className="w-full outline-none"
-  
                       className="w-full bg-transparent outline-none"
                     />
 
